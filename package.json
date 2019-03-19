@@ -1,0 +1,30 @@
+{
+  "name": "hedera-sdk-javascript",
+  "version": "0.0.1",
+  "description": "Hedera JavaScript SDK",
+  "main": "Main.js",
+  "scripts": {
+    "flow:check": "flow check ./JS_SDK_Flow/",
+    "flow:coverage": "flow-coverage-report --config .flowcoverage.json",
+    "flow:buildmain": "flow-remove-types ./JS_SDK_Flow/ -d ./JS_SDK/ --all --pretty",
+    "flow:buildtest": "flow-remove-types ./JS_SDK_FlowTest/ -d ./JS_SDK_Test/ --all --pretty",
+    "flow:deps": "flow-typed install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xclbrio/hedera-sdk-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xclbrio/hedera-sdk-javascript/issues"
+  },
+  "homepage": "https://github.com/xclbrio/hedera-sdk-javascript#readme",
+  "devDependencies": {
+    "flow-bin": "^0.95.1",
+    "flow-coverage-report": "^0.6.1",
+    "flow-remove-types": "^1.2.3",
+    "flow-typed": "^2.5.1",
+    "lodash": "^4.17.11"
+  }
+}
