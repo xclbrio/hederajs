@@ -1,4 +1,4 @@
-// This is the Main Class of JavaScript SDK for Hedera.
+// This is the Main Class of Hedera SDK for JavaScript.
 
 
 // @flow
