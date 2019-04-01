@@ -1,3 +1,4 @@
 node_modules/
 .DS_Store
 package-lock.json
+wasm_example/node_modules/
