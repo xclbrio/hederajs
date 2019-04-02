@@ -1,0 +1,29 @@
+{
+  "name": "hedera-sdk-javascript",
+  "version": "0.0.1",
+  "description": "This library will allow you to work with Hedera smart contracts using JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xclbrio/hedera-sdk-javascript.git"
+  },
+  "keywords": [
+    "javascript",
+    "js",
+    "hedera",
+    "sdk",
+    "rust"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xclbrio/hedera-sdk-javascript/issues"
+  },
+  "homepage": "https://github.com/xclbrio/hedera-sdk-javascript#readme",
+  "devDependencies": {
+    "ffi": "^2.3.0"
+  }
+}
