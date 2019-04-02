@@ -2,12 +2,14 @@
   "name": "hedera-sdk-javascript",
   "version": "0.0.1",
   "description": "This library will allow you to work with Hedera smart contracts using JavaScript.",
-  "main": "./JS/HederaSDK.js",
+  "main": "./js/hederasdk.js",
   "scripts": {
     "flow": "flow",
-    "flow:check": "flow check ./FlowJS/",
+    "flow:checksdk": "flow check ./flow/js/",
+    "flow:checktests": "flow check ./flow/tests/",
     "flow:coverage": "flow-coverage-report --config .flowcoverage.json",
-    "flow:build": "flow-remove-types ./FlowJS/ -d ./JS/ --all --pretty",
+    "flow:buildsdk": "flow-remove-types ./flow/js/ -d ./js/ --all --pretty",
+    "flow:buildtests": "flow-remove-types ./flow/tests/ -d ./tests/ --all --pretty",
     "flow:coverage": "flow-coverage-report --config .flowcoverage.json",
     "flow:deps": "flow-typed install",
     "test": "test"

@@ -7,13 +7,13 @@ function HederaSDK(selectedTargetOS = 0) {
 	// Importing a dynamic library with functions to work based on the selected OS
 	switch (selectedTargetOS) {
 		case 0:
-			var libraryPath = "./DynamicLib/Linux/lib.so";
+			var libraryPath = "../dynamic_lib/Linux/lib.so";
 			break;
 		case 1:
-			var libraryPath = "./DynamicLib/macOS/lib.dylib";
+			var libraryPath = "../dynamic_lib/macOS/lib.dylib";
 			break;
 		case 2:
-			var libraryPath = "./DynamicLib/Windows/lib.dll";
+			var libraryPath = "../dynamic_lib/Windows/lib.dll";
 			break;
 	}
 	
