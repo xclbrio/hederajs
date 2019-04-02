@@ -1,7 +1,7 @@
 const NodeFFI = require("ffi");
 
-let importLibrary = NodeFFI.Library("./embed/target/release/libshrek.dylib", {
-	"shrek": ["void", ["int"]]	
+let importLibrary = NodeFFI.Library("./example/target/release/libexample.dylib", {
+	"fibonacci_function": ["void", ["int"]]
 });
 
-importLibrary.shrek(3);
+importLibrary.fibonacci_function(3);
