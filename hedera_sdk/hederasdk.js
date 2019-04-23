@@ -34,13 +34,13 @@ function HederaSDK(address, port, targetOS = "Linux") {
 }
 
 
-// This method allows you to get account information.
+// This method allows you to get account information
 HederaSDK.prototype.getAccount = function (operator, operatorSecret) {
 	return this.importLibrary.get_account(operator, this.address, this.port, operatorSecret);
 }
 
 
-// This method allows you to generate a key.
+// This method allows you to generate a key
 HederaSDK.prototype.generateKey = function () {
 	this.importLibrary.generate_key();
 }

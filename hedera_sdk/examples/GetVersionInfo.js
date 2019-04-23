@@ -1,5 +1,5 @@
 // Connection HederaSDK library for further use
-const HederaSDK = require("hederasdkjs");
+const HederaSDK = require("../HederaSDK.js");
 
 // Creating an instance of the HederaSDK class
 let hederaHashgraph = new HederaSDK("_address_", "_port_");

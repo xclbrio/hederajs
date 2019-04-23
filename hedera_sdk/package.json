@@ -1,8 +1,8 @@
 {
-  "name": "hederasdkjs",
-  "version": "0.2.4",
+  "name": "hederasdk",
+  "version": "0.4.0",
   "description": "Hedera SDK for JavaScript",
-  "main": "hederasdk.js",
+  "main": "HederaSDK.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,9 +10,9 @@
     "ffi": "^2.3.0"
   },
   "keywords": [
-    "hederasdk",
+    "hedera",
+    "sdk",
     "smart contract",
-    "ethereum",
     "javascript",
     "api",
     "excalibur_",
