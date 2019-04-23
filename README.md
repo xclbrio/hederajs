@@ -14,8 +14,8 @@ Hedera JavaScript SDK is the environment for working with Hedera Hashgraph - a c
 ## Table of Contents
 
 * [Installation](#installation)
-  * [NPM](#npm)
-  * [Yarn](#yarn)
+  * [NPM](#npm-not-available-now)
+  * [Yarn](#yarn-not-available-now)
 * [Usage information](#usage-information)
   * [Import class for use in your project](#import-class-for-use-in-your-project)
   * [Create a class instance](#create-a-class-instance)
@@ -29,13 +29,13 @@ Hedera JavaScript SDK is the environment for working with Hedera Hashgraph - a c
 
 ## Installation
 
-### NPM
+### NPM (NOT AVAILABLE NOW)
 
 ```bash
 npm install hederasdkjs
 ```
 
-### Yarn
+### Yarn (NOT AVAILABLE NOW)
 
 ```bash
 yarn add hederasdkjs
