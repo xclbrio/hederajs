@@ -29,13 +29,13 @@ Hedera JavaScript SDK is the environment for working with Hedera Hashgraph - a c
 
 ## Installation
 
-### NPM (NOT AVAILABLE NOW)
+### NPM (Not available now)
 
 ```bash
 npm install hederasdkjs
 ```
 
-### Yarn (NOT AVAILABLE NOW)
+### Yarn (Not available now)
 
 ```bash
 yarn add hederasdkjs
