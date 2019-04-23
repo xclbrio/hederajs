@@ -1,0 +1,5 @@
+{
+	"Linux": "../dynamic_lib/Linux/libhedera.so",
+	"macOS": "../dynamic_lib/macOS/libhedera.dylib",
+	"Windows": "../dynamic_lib/Windows/libhedera.lib"
+}
