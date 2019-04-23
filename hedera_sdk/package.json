@@ -1,14 +1,28 @@
 {
   "name": "hederasdkjs",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.2.4",
+  "description": "Hedera SDK for JavaScript",
   "main": "hederasdk.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "ffi": "^2.3.0"
+  },
+  "keywords": [
+    "hederasdk",
+    "smart contract",
+    "ethereum",
+    "javascript",
+    "api",
+    "excalibur_",
+    "dex",
+    "exchange"
+  ],
+  "private": false,
+  "engines": {
+    "node": ">=10.13.0",
+    "npm": ">=6.4.1",
+    "yarn": ">=1.12.3"
   }
 }
