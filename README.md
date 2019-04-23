@@ -11,17 +11,78 @@
 Hedera JavaScript SDK is the environment for working with Hedera Hashgraph - a consensus platform using the hashgraph consensus algorithm for fast, fair and secure transactions. This is an unofficial version of the development tool by [Excalibur_](https://github.com/xclbrio) team.
 
 
-## Getting started
+## Table of Contents
 
-### installing
-### hello world
+* [Installation](#installation)
+  * [NPM](#npm-not-available-now)
+  * [Yarn](#yarn-not-available-now)
+* [Usage information](#usage-information)
+  * [Import class for use in your project](#import-class-for-use-in-your-project)
+  * [Create a class instance](#create-a-class-instance)
+  * [Get methods for working with it](#get-methods-for-working-with-it)
+  * [An example of a method call](#an-example-of-a-method-call)
+* [Other](#other)
+  * [Community](#сommunity)
+  * [Other implementations](#other-implementations)
+  * [More information by Hedera Hashgraph](#more-information-by-hedera-hashgraph)
+* [License](#license)
 
+## Installation
 
-## Community
+### NPM (NOT available now)
+
+```bash
+npm install hederasdkjs
+```
+
+### Yarn (NOT available now)
+
+```bash
+yarn add hederasdkjs
+```
+
+## Usage information
+
+### Import class for use in your project
+
+Connection HederaSDK library for further use:
+
+```js
+const HederaSDK = require("hederasdkjs");
+```
+
+### Create a class instance
+
+Creating an instance of the HederaSDK class:
+
+```js
+let hashgraph = new HederaSDK("_address_", "_port_", "_targetOS_");
+```
+
+### Get methods for working with it
+
+You can get methods for working with your object:
+
+```js
+console.log(hashgraph);
+```
+
+### An example of a method call
+
+Example of a method call on an object:
+
+```js
+hashgraph.version();
+```
+
+## Other
+
+### Community
  * Excalibur_ chat: [Gitter](https://gitter.im/xclbrio/Lobby)
  * Email: support@xclbr.io
  * [Issues page](https://github.com/xclbrio/DLL/issues) for reports
-## Other implementations
+ 
+### Other implementations
 
 Offiсial:
  * [Java](https://github.com/hashgraph/hedera-sdk-java)
@@ -31,7 +92,7 @@ By launchbadge:
  * [Rust](https://github.com/launchbadge/hedera-sdk-rust)
  * [Golang](https://github.com/launchbadge/hedera-sdk-go)
  
- ## More information by Hedera Hashgraph
+ ### More information by Hedera Hashgraph
 You can visit [The Hedera Site](https://www.hedera.com/).
 
 Please review the [Contributing Guide](https://github.com/hashgraph/hedera-sdk-java/blob/master/CONTRIBUTING.md).
