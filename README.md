@@ -13,7 +13,7 @@ Hedera JavaScript SDK is the environment for working with Hedera Hashgraph - a c
 
 ## Getting started
 
-### installing
+### Installing
 ### hello world
 
 
