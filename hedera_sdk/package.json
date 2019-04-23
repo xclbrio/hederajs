@@ -1,8 +1,8 @@
 {
-  "name": "hederasdk",
+  "name": "hederasdkjs",
   "version": "1.0.0",
   "description": "",
-  "main": "HederaSDK.js",
+  "main": "hederasdk.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
