@@ -32,13 +32,13 @@ Hedera JavaScript SDK is the environment for working with Hedera Hashgraph - a c
 ### NPM (NOT available now)
 
 ```bash
-npm install hederasdkjs
+npm install hederasdk
 ```
 
 ### Yarn (NOT available now)
 
 ```bash
-yarn add hederasdkjs
+yarn add hederasdk
 ```
 
 ## Usage information
@@ -48,7 +48,7 @@ yarn add hederasdkjs
 Connection HederaSDK library for further use:
 
 ```js
-const HederaSDK = require("hederasdkjs");
+const HederaSDK = require("hederasdk");
 ```
 
 ### Create a class instance
@@ -56,7 +56,7 @@ const HederaSDK = require("hederasdkjs");
 Creating an instance of the HederaSDK class:
 
 ```js
-let hashgraph = new HederaSDK("_address_", "_port_", "_targetOS_");
+let hederaHashgraph = new HederaSDK("_address_", "_port_", "_targetOS_");
 ```
 
 ### Get methods for working with it
@@ -64,7 +64,7 @@ let hashgraph = new HederaSDK("_address_", "_port_", "_targetOS_");
 You can get methods for working with your object:
 
 ```js
-console.log(hashgraph);
+console.log(hederaHashgraph);
 ```
 
 ### An example of a method call
@@ -72,7 +72,7 @@ console.log(hashgraph);
 Example of a method call on an object:
 
 ```js
-hashgraph.version();
+hederaHashgraph.version();
 ```
 
 ## Other
