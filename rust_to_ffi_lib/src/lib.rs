@@ -24,14 +24,26 @@ mod transaction_record;
 
 
 // Adding examples to lib.rs that yoy can compile this library to dynamic lib of your system
-use get_account_to_ffi;
-use generate_key_to_ffi;
-use create_file_to_ffi;
-use create_file_from_file_to_ffi;
-use create_account_to_ffi;
-use append_file_to_ffi;
-use update_account_to_ffi;
-use transfer_crypto_to_ffi;
+mod get_account_to_ffi;
+use get_account_to_ffi::*;
+mod generate_key_to_ffi;
+use generate_key_to_ffi::*;
+mod create_file_to_ffi;
+use create_file_to_ffi::*;
+mod create_file_from_file_to_ffi;
+use create_file_from_file_to_ffi::*;
+mod create_account_to_ffi;
+use create_account_to_ffi::*;
+mod append_file_to_ffi;
+use append_file_to_ffi::*;
+mod update_account_to_ffi;
+use update_account_to_ffi::*;
+mod transfer_crypto_to_ffi;
+use transfer_crypto_to_ffi::*;
+mod create_contract_to_ffi;
+use create_contract_to_ffi::*;
+mod call_hello_world_contract_to_ffi;
+use call_hello_world_contract_to_ffi::*;
 
 
 pub use self::{
@@ -91,18 +103,35 @@ pub extern fn create_account(input_operator: &str, input_address: &str, input_po
 
 
 // append_file from output_append_file
+#[no_mangle]
 pub extern fn append_file(input_operator: &str, input_address: &str, input_port: &str, input_operator_secret: &str, input_path_to_file: &str) {
     append_file_to_ffi::output_append_file(input_operator, input_address, input_port, input_operator_secret, input_path_to_file);
 }
 
 
 // update_account from output_update_account
+#[no_mangle]
 pub extern fn update_account(input_operator: &str, input_address: &str, input_port: &str, input_operator_secret: &str) {
     update_account_to_ffi::output_update_account(input_operator, input_address, input_port, input_operator_secret);
 }
 
 
 // transfer_crypto from output_transfer_crypto
+#[no_mangle]
 pub extern fn transfer_crypto(input_operator: &str, input_address: &str, input_port: &str, input_operator_secret: &str, input_receiver_secret: &str, input_account_id: &str) {
     transfer_crypto_to_ffi::output_transfer_crypto(input_operator, input_address, input_port, input_operator_secret, input_receiver_secret, input_account_id);
+}
+
+
+// create_contract from output_create_contract
+#[no_mangle]
+pub extern fn create_contract(input_operator: &str, input_address: &str, input_port: &str, input_operator_secret: &str, input_file_id: &str, input_gas: &str) {
+    create_contract_to_ffi::output_create_account(input_operator, input_address, input_port, input_operator_secret, input_file_id, input_gas);
+}
+
+
+// call_hello_world_contract_to_ffi from call_hello_world_contract
+#[no_mangle]
+pub extern fn call_hello_world_contract(input_operator: &str, input_address: &str, input_port: &str, input_operator_secret: &str, input_smart_contract_abi: &str, input_contract_id: &str, input_gas: &str) {
+    call_hello_world_contract_to_ffi::output_call_hello_world_contract(input_operator, input_address, input_port, input_operator_secret, input_smart_contract_abi, input_contract_id, input_gas);
 }
