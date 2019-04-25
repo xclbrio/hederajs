@@ -10,6 +10,7 @@ const Settings = require("./config/settings.json");
 
 // The `HederaSDK` class constructor which includes methods for working with it
 function HederaSDK(address, port, targetOS = "Linux") {
+	
 	// Reading the path from settings.json depending on the selected OS
 	this.libraryPath = Settings[targetOS] ? Settings[targetOS] : console.log(`Target OS ${targetOS} is not define`);
 	
