@@ -5,4 +5,4 @@ const HederaSDK = require("../HederaSDK.js");
 let hederaHashgraph = new HederaSDK("_address_", "_port_");
 
 // Call method and create account
-hederaHashgraph.callHelloWorldContract("_operator_value_", "_private_key_", "_smart_contract_abi_", "_contract_id_", "_gas_");
+hederaHashgraph.callContract("_operator_value_", "_private_key_", "_smart_contract_abi_", "_contract_id_", "_gas_");

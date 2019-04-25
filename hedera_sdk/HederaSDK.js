@@ -30,7 +30,7 @@ function HederaSDK(address, port, targetOS = "Linux") {
 		"update_account": ["void", ["string", "string", "string", "string"]],
 		"transfer_crypto": ["void", ["string", "string", "string", "string", "string", "string"]],
 		"create_contract": ["void", ["string", "string", "string", "string", "string", "string"]],
-		"call_hello_world_contract": ["void", ["string", "string", "string", "string", "string", "string", "string"]]
+		"call_contract": ["void", ["string", "string", "string", "string", "string", "string", "string"]]
 	});
 	
 }
@@ -91,8 +91,8 @@ HederaSDK.prototype.createContract = function (operator, operatorSecret, fileID,
 
 
 // This method allows you to call a smart contract with the contract id and its ABI
-HederaSDK.prototype.callHelloWorldContract = function (operator, operatorSecret, smartContractABI, contractID, gas) {
-	this.importLibrary.call_hello_world_contract(operator, this.address, this.port, operatorSecret, smartContractABI, contractID, gas);
+HederaSDK.prototype.callContract = function (operator, operatorSecret, smartContractABI, contractID, gas) {
+	this.importLibrary.call_contract(operator, this.address, this.port, operatorSecret, smartContractABI, contractID, gas);
 }
 
 

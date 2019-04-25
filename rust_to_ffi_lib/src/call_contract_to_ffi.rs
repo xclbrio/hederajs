@@ -109,7 +109,7 @@ async fn main_(input_operator: &str, input_address: &str, input_port: &str, inpu
     Ok(())
 }
 
-fn output_call_hello_world_contract(input_operator: &str, input_address: &str, input_port: &str, input_operator_secret: &str, input_smart_contract_abi: &str, input_contract_id: &str, input_gas: &str) {
+fn output_call_contract(input_operator: &str, input_address: &str, input_port: &str, input_operator_secret: &str, input_smart_contract_abi: &str, input_contract_id: &str, input_gas: &str) {
     run_async(main_(input_operator, input_address, input_port, input_operator_secret, input_smart_contract_abi, input_contract_id, input_gas).map(|res| match res {
         Ok(_) => {}
         Err(err) => eprintln!("error: {}", err),

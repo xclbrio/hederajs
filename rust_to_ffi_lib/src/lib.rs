@@ -42,8 +42,8 @@ mod transfer_crypto_to_ffi;
 use transfer_crypto_to_ffi::*;
 mod create_contract_to_ffi;
 use create_contract_to_ffi::*;
-mod call_hello_world_contract_to_ffi;
-use call_hello_world_contract_to_ffi::*;
+mod call_contract_to_ffi;
+use call_contract_to_ffi::*;
 
 
 pub use self::{
@@ -130,8 +130,8 @@ pub extern fn create_contract(input_operator: &str, input_address: &str, input_p
 }
 
 
-// call_hello_world_contract_to_ffi from call_hello_world_contract
+// call_contract from output_call_contract
 #[no_mangle]
-pub extern fn call_hello_world_contract(input_operator: &str, input_address: &str, input_port: &str, input_operator_secret: &str, input_smart_contract_abi: &str, input_contract_id: &str, input_gas: &str) {
-    call_hello_world_contract_to_ffi::output_call_hello_world_contract(input_operator, input_address, input_port, input_operator_secret, input_smart_contract_abi, input_contract_id, input_gas);
+pub extern fn call_contract(input_operator: &str, input_address: &str, input_port: &str, input_operator_secret: &str, input_smart_contract_abi: &str, input_contract_id: &str, input_gas: &str) {
+    call_contract_to_ffi::output_call_contract(input_operator, input_address, input_port, input_operator_secret, input_smart_contract_abi, input_contract_id, input_gas);
 }
