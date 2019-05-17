@@ -76,7 +76,7 @@ pub fn create_contract_func<'a>(input_operator: &str, input_node_port: &str, inp
     let contract = receipt.contract_id.unwrap();
 
     println!("contract ID = {}", contract);
-    println!("Run these (OS Depending) to run further contract examples");
+    println!("Run these (OS Depending) to run further contract temp");
     println!("export CONTRACT_ID={}", contract);
     println!("set CONTRACT_ID={}", contract);
 

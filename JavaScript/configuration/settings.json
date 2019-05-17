@@ -1,0 +1,5 @@
+{
+	"Linux": "../targetOS/Linux/libhedera.so",
+	"macOS": "../targetOS/macOS/libhedera.dylib",
+	"Windows": "../targetOS/Windows/libhedera.dll"
+}

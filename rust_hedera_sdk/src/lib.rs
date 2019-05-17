@@ -25,6 +25,8 @@ mod get_account_method;
 mod create_file_from_file_method;
 mod create_contract_method;
 mod call_contract_method;
+mod append_file_method;
+mod generate_key_method;
 
 pub use self::{
     claim::Claim,
@@ -42,6 +44,8 @@ pub use self::{
     create_file_from_file_method::*,
     create_contract_method::*,
     call_contract_method::*,
+    append_file_method::*,
+    generate_key_method::*,
 };
 
 use once_cell::{sync::Lazy, sync_lazy};
@@ -147,23 +151,41 @@ fn create_object_representation(match_key: i32, input_strings: &[&str]) -> *cons
 }
 
 
-// comment
+// Wrapping a function into another if necessary and issuing access to it
+// This method allows you to get information about your current account
 #[no_mangle]
 pub extern fn get_account(input_operator: *const c_char, input_node_port: *const c_char, input_node_account: *const c_char, input_private_key: *const c_char) -> *const c_char {
     convert_to_UTF_16(get_account_func(convert_to_UTF_8(input_operator),convert_to_UTF_8(input_node_port),convert_to_UTF_8(input_node_account),convert_to_UTF_8(input_private_key)))
 }
 
+
+// Wrapping a function into another if necessary and issuing access to it
+// This method allows you to create a file from another file by specifying the path to it
 #[no_mangle]
 pub extern fn create_file_from_file(input_operator: *const c_char, input_node_port: *const c_char, input_node_account: *const c_char, input_private_key: *const c_char, input_file_path: *const c_char) -> *const c_char {
     convert_to_UTF_16(create_file_from_file_func(convert_to_UTF_8(input_operator),convert_to_UTF_8(input_node_port),convert_to_UTF_8(input_node_account),convert_to_UTF_8(input_private_key),convert_to_UTF_8(input_file_path)))
 }
 
+
+// Wrapping a function into another if necessary and issuing access to it
+// This method allows you to create a contract
 #[no_mangle]
 pub extern fn create_contract(input_operator: *const c_char, input_node_port: *const c_char, input_node_account: *const c_char, input_private_key: *const c_char, input_file_id: *const c_char, input_gas: *const c_char) -> *const c_char {
     convert_to_UTF_16(create_contract_func(convert_to_UTF_8(input_operator),convert_to_UTF_8(input_node_port),convert_to_UTF_8(input_node_account),convert_to_UTF_8(input_private_key),convert_to_UTF_8(input_file_id),convert_to_UTF_8(input_gas)))
 }
 
+
+// Wrapping a function into another if necessary and issuing access to it
+// This method allows you to call a smart contract using a method from it
 #[no_mangle]
 pub extern fn call_contract(input_operator: *const c_char, input_node_port: *const c_char, input_node_account: *const c_char, input_private_key: *const c_char, input_contract_id: *const c_char, input_gas: *const c_char, input_abi_path: *const c_char, input_function: *const c_char) -> *const c_char {
     convert_to_UTF_16(call_contract_func(convert_to_UTF_8(input_operator),convert_to_UTF_8(input_node_port),convert_to_UTF_8(input_node_account),convert_to_UTF_8(input_private_key),convert_to_UTF_8(input_contract_id),convert_to_UTF_8(input_gas),convert_to_UTF_8(input_abi_path),convert_to_UTF_8(input_function)))
+}
+
+
+// Wrapping a function into another if necessary and issuing access to it
+// This function allows you to get information about Rust HederaSDK
+#[no_mangle]
+pub extern fn get_sdk_version() -> *const c_char {
+    convert_to_UTF_16(env!("CARGO_PKG_VERSION"))
 }

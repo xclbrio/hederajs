@@ -24,7 +24,7 @@ async fn main_() -> Result<(), Error> {
     let public = secret.public();
 
     // load file from file system
-    let mut my_file = File::open("examples/Hedera.txt")?;
+    let mut my_file = File::open("temp/Hedera.txt")?;
     let mut file_contents = Vec::new();
     // read the whole file
     my_file.read_to_end(&mut file_contents)?;    
