@@ -1,2 +1,0 @@
-This is a dummy file.
-This folder should contain the compiled library libhedera.lib.
