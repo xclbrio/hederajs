@@ -9,7 +9,7 @@ use ethabi::token::{Token, Tokenizer, StrictTokenizer, LenientTokenizer};
 use ethabi::{encode, decode, Contract, Function, Event, Hash};
 use failure::{format_err, Error};
 use futures::FutureExt;
-use crate::{Client, Status, query};
+use crate::{Client, Status, query, string_to_static_str};
 use std::{env, thread::sleep, time::Duration};
 use std::str::FromStr;
 use tokio::{await, run_async};
@@ -107,8 +107,8 @@ pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input
 //        ))?;
 //    }
 
-    println!("Got record body {:?}", record.contract_function_result);
-    println!("{:?}", function.decode_output(&record.contract_function_result.unwrap().contract_call_result).unwrap()[0]);
+    //println!("Got record body {:?}", record.contract_function_result);
+    //println!("{:?}", function.decode_output(&record.contract_function_result.unwrap().contract_call_result).unwrap()[0]);
 
 //    let contract_function_result = record.contract_function_result; //.contract_call_result;
 
@@ -128,6 +128,6 @@ pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input
     // };
 
     // println!("result = {}", function_result.unwrap());
-
-    "Result returned from call_contract_method"
+    let y =  function.decode_output(&record.contract_function_result.unwrap().contract_call_result).unwrap().iter().map(|h| h.to_string()).collect::<Vec<String>>().join(","); //.iter().map(| t| t.to_string()).collect::<Vec<String>>().join(",");
+    string_to_static_str(y)
 }

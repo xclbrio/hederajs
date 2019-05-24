@@ -1,7 +1,7 @@
 #![feature(async_await, futures_api, await_macro)]
 use failure::{format_err, Error};
 use futures::FutureExt;
-use crate::{Client, SecretKey, Status};
+use crate::{Client, SecretKey, Status, string_to_static_str};
 use std::{env, thread::sleep, time::Duration};
 use std::str::FromStr;
 use tokio::{await, run_async};
@@ -54,7 +54,12 @@ pub fn create_file_from_file_func<'a>(input_operator: &str, input_node_port: &st
 //    }
 
     let file = receipt.file_id.unwrap();
-    println!("file ID = {}", file);
 
-    "Result returned from create_file_from_file_method"
+    let shard = file.shard.to_string();
+    let realm = file.realm.to_string();
+    let file_id = file.file.to_string();
+    let file_output = vec![shard, realm, file_id].join(":");
+    //println!("file ID = {}", file);
+
+    string_to_static_str(file_output)
 }

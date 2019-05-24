@@ -1,7 +1,7 @@
 #![feature(async_await, futures_api, await_macro)]
 use failure::{format_err, Error};
 use futures::FutureExt;
-use crate::{Client, SecretKey, Status};
+use crate::{Client, SecretKey, Status, string_to_static_str};
 use std::{env, thread::sleep, time::Duration};
 use std::str::FromStr;
 use tokio::{await, run_async};
@@ -72,13 +72,18 @@ pub fn create_contract_func<'a>(input_operator: &str, input_node_port: &str, inp
 //            receipt.status
 //        )).unwrap();
 //    }
-    println!("receipt = {:?}", receipt.status);
+    //println!("receipt = {:?}", receipt.status);
     let contract = receipt.contract_id.unwrap();
 
-    println!("contract ID = {}", contract);
-    println!("Run these (OS Depending) to run further contract temp");
-    println!("export CONTRACT_ID={}", contract);
-    println!("set CONTRACT_ID={}", contract);
+    //println!("contract ID = {}", contract);
+    //println!("Run these (OS Depending) to run further contract temp");
+    //println!("export CONTRACT_ID={}", contract);
+    //println!("set CONTRACT_ID={}", contract);
 
-    "Result returned from create_contract_method"
+    let shard = contract.shard.to_string();
+    let realm = contract.realm.to_string();
+    let contract_id = contract.contract.to_string();
+    let contract_output = vec![shard, realm, contract_id].join(":");
+
+    string_to_static_str(contract_output)
 }

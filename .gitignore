@@ -6,6 +6,10 @@
 target/
 
 node_modules/
-.gitignore
 .DS_Store
 .DS_Store
+
+example_run.rs
+example_run.js
+libhedera.so
+check_example.js

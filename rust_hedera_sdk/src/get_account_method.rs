@@ -1,5 +1,5 @@
 use failure::Error;
-use crate::Client;
+use crate::{Client,string_to_static_str};
 use std::env;
 
 pub fn get_account_func<'a>(input_operator: &str, input_node_port: &str, input_node_account: &str, input_private_key: &'static str) -> &'a str  {
@@ -18,14 +18,13 @@ pub fn get_account_func<'a>(input_operator: &str, input_node_port: &str, input_n
     // This costs 100,000 tinybar
 
     let balance = client.account(operator).balance().get().unwrap();
-    println!("balance = {} tinybars", balance);
+    //println!("balance = {} tinybars", balance);
 
     // Now actually get the full information for the account
     // This costs 100,000 tinybar
 
     let info = client.account(operator).info().get().unwrap();
-    println!("info = {:#?}", info);
+    //println!("info = {:#?}", info);
 
-
-    "Result returned from get_account"
+    string_to_static_str(balance.to_string())
 }

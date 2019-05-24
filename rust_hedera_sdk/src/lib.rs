@@ -70,6 +70,10 @@ use libc::c_char;
 // Pointer (*const c_char) initialization declaration
 static mut INITIALIZED_POINTER: bool = false;
 
+// convert string to static str
+fn string_to_static_str(s: String) -> &'static str {
+    Box::leak(s.into_boxed_str())
+}
 
 // This function allow you to specify string in UTF-16 format and convert this Unicode representation to UTF-8 representation for Rust
 extern "C" fn convert_to_UTF_8<'a>(input_string: *const c_char) -> &'a str {
