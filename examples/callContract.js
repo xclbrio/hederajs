@@ -14,6 +14,7 @@ const contractID = "0.0.1096";
 const gasValue = "1000000";
 const pathToAbi = "smartContracts/HelloWorld.abi";
 const methodName = "getInt";
+const arguments = "15,21";
 
 // call smart contract method
-console.log(excalibur.callContract(userAccount, userPrivateKey, contractID, gasValue, pathToAbi, methodName));
+console.log(excalibur.callContract(userAccount, userPrivateKey, contractID, gasValue, pathToAbi, methodName, arguments));

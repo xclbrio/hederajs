@@ -182,8 +182,8 @@ pub extern fn create_contract(input_operator: *const c_char, input_node_port: *c
 // Wrapping a function into another if necessary and issuing access to it
 // This method allows you to call a smart contract using a method from it
 #[no_mangle]
-pub extern fn call_contract(input_operator: *const c_char, input_node_port: *const c_char, input_node_account: *const c_char, input_private_key: *const c_char, input_contract_id: *const c_char, input_gas: *const c_char, input_abi_path: *const c_char, input_function: *const c_char) -> *const c_char {
-    convert_to_UTF_16(call_contract_func(convert_to_UTF_8(input_operator),convert_to_UTF_8(input_node_port),convert_to_UTF_8(input_node_account),convert_to_UTF_8(input_private_key),convert_to_UTF_8(input_contract_id),convert_to_UTF_8(input_gas),convert_to_UTF_8(input_abi_path),convert_to_UTF_8(input_function)))
+pub extern fn call_contract(input_operator: *const c_char, input_node_port: *const c_char, input_node_account: *const c_char, input_private_key: *const c_char, input_contract_id: *const c_char, input_gas: *const c_char, input_abi_path: *const c_char, input_function: *const c_char, input_arguments: *const c_char) -> *const c_char {
+    convert_to_UTF_16(call_contract_func(convert_to_UTF_8(input_operator),convert_to_UTF_8(input_node_port),convert_to_UTF_8(input_node_account),convert_to_UTF_8(input_private_key),convert_to_UTF_8(input_contract_id),convert_to_UTF_8(input_gas),convert_to_UTF_8(input_abi_path),convert_to_UTF_8(input_function),convert_to_UTF_8(input_arguments)))
 }
 
 

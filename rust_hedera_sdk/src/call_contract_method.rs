@@ -13,31 +13,10 @@ use crate::{Client, Status, query, string_to_static_str};
 use std::{env, thread::sleep, time::Duration};
 use std::str::FromStr;
 use tokio::{await, run_async};
+use core::borrow::Borrow;
 
-// This example executes a function of the hello world contract
-
-// to invoke from unix/macOs terminal
-// export OPERATOR=The account ID executing the transaction (e.g. 0.0.2)
-// export NODE_PORT=node:port you're sending the transaction to (e.g. testnet.hedera.com:50003)
-// export NODE_ACCOUNT=node's account (e.g. 0.0.3)
-// export OPERATOR_SECRET=your private key (e.g. 302e020100300506032b657004220420aaeeb4f94573f3d13b4f0965d4e59d1cf30695d9d9788d25539f322bdf3a5edd)
-// export CONTRACT_ID=Hedera contract ID referring to the smart contract (e.g. 0.0.1032)
-// export GAS=gas limit for creating the smart contract in tinybar (e.g. 22000)
-// then from the hedera-sdk-rust root run:
-// cargo run --example call_hello_world_contract
-
-// to invoke from windows command line
-// set OPERATOR=The account ID executing the transaction (e.g. 0.0.2)
-// set NODE_PORT=node:port you're sending the transaction to (e.g. testnet.hedera.com:50003)
-// set NODE_ACCOUNT=node's account (e.g. 0.0.3)
-// set OPERATOR_SECRET=your private key (e.g. 302e020100300506032b657004220420aaeeb4f94573f3d13b4f0965d4e59d1cf30695d9d9788d25539f322bdf3a5edd)
-// set CONTRACT_ID=Hedera contract ID referring to the smart contract (e.g. 0.0.1032)
-// set GAS=gas limit for creating the smart contract in tinybar (e.g. 22000)
-// then from the hedera-sdk-rust root run:
-// cargo run --example call_hello_world_contract
-
-pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input_node_account: &str, input_private_key: &'static str, input_contract_id: &'static str, input_gas: &'static str, input_abi_path: &'static str, input_function: &'static str) -> &'a str  {
-
+pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input_node_account: &str, input_private_key: &'static str, input_contract_id: &'static str, input_gas: &'static str, input_abi_path: &'static str, input_function: &'static str, input_arguments: &'static str) -> &'a str  {
+    //println!("{:?}", input_arguments);
     // Operator is the account that sends the transaction to the network
     // This account is charged for the transaction fee
     let operator = input_operator.parse().unwrap();;
@@ -70,8 +49,21 @@ pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input
     }; 
 
     // encode the function to a byte array
-    // no parameters for this call
-    let function_call = function.encode_input(&[]);
+    let mut args_vector:Vec<Token> = [].to_vec();
+    if input_arguments != "" {
+        let args_parsed = input_arguments
+            .split(",").take(10)
+            .collect::<Vec<&str>>();
+        let temp = args_parsed
+            .iter()
+            .map(|x| Token::Uint(x.parse::<u32>().unwrap().into()))
+            .collect::<Vec<Token>>();
+        args_vector = temp;
+        //println!("{:?}", args_parsed);
+        //println!("{:?}", args_vector);
+    }
+
+    let function_call = function.encode_input(args_vector.as_slice());
     let function_call = match function_call {
         Ok(function_call) => function_call,
         Err(error) => {
@@ -100,34 +92,10 @@ pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input
 
     // get the record from the contract call and extract the result
     let record = client.transaction(id).record().get().unwrap();
-//    if record.receipt.status != Status::Success {
-//        Err(format_err!(
-//            "transaction has a non-successful status: {:?}",
-//            record.receipt.status
-//        ))?;
-//    }
 
-    //println!("Got record body {:?}", record.contract_function_result);
-    //println!("{:?}", function.decode_output(&record.contract_function_result.unwrap().contract_call_result).unwrap()[0]);
+    //возвращает корректно только числа
+    //для нормальной работы нужен свич кейс
+    let y = function.decode_output(&record.contract_function_result.unwrap().contract_call_result).unwrap()[0].clone().to_uint().unwrap().to_string();
 
-//    let contract_function_result = record.contract_function_result; //.contract_call_result;
-
-
-    // get the byte array containing results from the record
-    // match record.body {
-    //     query::ContractFunctionResult { _, contract_call_result, error_message, bloom, gas_used, log_info } => println!("Record is: {:?}", contract_call_result),
-    //     _ => println!("Not what I expected"),
-    // }
-
-    // let function_result = function.decode_output(result);
-    // let function_result = match function_result {
-    //     Ok(function_result) => function_result,
-    //     Err(error) => {
-    //         panic!("There was an error decoding the function result {:?}", error)
-    //     },
-    // };
-
-    // println!("result = {}", function_result.unwrap());
-    let y =  function.decode_output(&record.contract_function_result.unwrap().contract_call_result).unwrap().iter().map(|h| h.to_string()).collect::<Vec<String>>().join(","); //.iter().map(| t| t.to_string()).collect::<Vec<String>>().join(",");
     string_to_static_str(y)
 }
