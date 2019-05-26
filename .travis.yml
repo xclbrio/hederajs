@@ -1,13 +1,13 @@
+notifications:
+  email:
+    recipients:
+      - zhdanoff.alexey@gmail.com
+    on_success: never
+    on_failure: never
+
 language: rust
 
 rust:
-    - 1.32.0
-    - stable
-    - beta
     - nightly
-
-matrix:
-    allow_failures:
-        - rust: nightly
-
-    fast_finish: true
+install:
+    - cargo build
