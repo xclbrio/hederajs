@@ -10,4 +10,5 @@ language: rust
 rust:
     - nightly
 install:
+    - cd rust_hedera_sdk/
     - cargo build
