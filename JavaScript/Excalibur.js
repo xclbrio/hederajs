@@ -27,7 +27,7 @@ function Excalibur_(nodeAddress, nodeAccount, selectedOS = "Linux") {
 		get_account: ["string", ["string", "string", "string", "string"]],
 		create_file_from_file: ["string", ["string", "string", "string", "string", "string"]],
 		create_contract: ["string", ["string", "string", "string", "string", "string", "string"]],
-		call_contract: ["string", ["string", "string", "string", "string", "string", "string", "string", "string", "string"]],
+		call_contract: ["string", ["string", "string", "string", "string", "string", "string", "string", "string", "string", "string"]],
 		get_sdk_version: ["string", []]
 	});
 	
@@ -54,8 +54,8 @@ Excalibur_.prototype.createContract = function (userAccount, userPrivateKey, fil
 
 
 // This method allows you to call a smart contract using a method from it
-Excalibur_.prototype.callContract = function (userAccount, userPrivateKey, contractID, gasValue, pathToABI, methodName, arguments) {
-	return this.hederaLibrary.call_contract(userAccount, this.nodeAddress, this.nodeAccount, userPrivateKey, contractID, gasValue, pathToABI, methodName, arguments);
+Excalibur_.prototype.callContract = function (userAccount, userPrivateKey, contractID, gasValue, pathToABI, methodName, amount, arguments) {
+	return this.hederaLibrary.call_contract(userAccount, this.nodeAddress, this.nodeAccount, userPrivateKey, contractID, gasValue, pathToABI, methodName, amount, arguments);
 }
 
 

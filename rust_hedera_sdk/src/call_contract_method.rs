@@ -15,7 +15,7 @@ use std::str::FromStr;
 use tokio::{await, run_async};
 use core::borrow::Borrow;
 
-pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input_node_account: &str, input_private_key: &'static str, input_contract_id: &'static str, input_gas: &'static str, input_abi_path: &'static str, input_function: &'static str, input_arguments: &'static str) -> &'a str  {
+pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input_node_account: &str, input_private_key: &'static str, input_contract_id: &'static str, input_gas: &'static str, input_abi_path: &'static str, input_function: &'static str, input_amount: &'static str, input_arguments: &'static str) -> &'a str  {
     //println!("{:?}", input_arguments);
     // Operator is the account that sends the transaction to the network
     // This account is charged for the transaction fee
@@ -32,7 +32,6 @@ pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input
     // load ABI 
     let file = File::open(input_abi_path).unwrap();
 	let contract = Contract::load(file);
-
     let contract = match contract {
         Ok(contract) => contract,
         Err(error) => {
@@ -72,11 +71,12 @@ pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input
     };
 
     // Call a contract function
+    let amount = input_amount.parse::<i64>().unwrap();
     let gas = input_gas.parse::<i64>().unwrap();
     let id = client
         .call_contract(input_contract_id.parse().unwrap())
         .gas(gas)
-        .amount(0)
+        .amount(amount)
         .function_parameters(function_call)
         .memo("[hedera-sdk-rust][example] call_contract")
         .generate_record(true)
@@ -88,7 +88,7 @@ pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input
 
     // If we got here we know we passed pre-check
     // Depending on your requirements that may be enough for some kinds of transactions
-    sleep(Duration::from_secs(5));
+    sleep(Duration::from_secs(1));
 
     // get the record from the contract call and extract the result
     let record = client.transaction(id).record().get().unwrap();
