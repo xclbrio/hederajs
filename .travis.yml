@@ -10,5 +10,10 @@ language: rust
 rust:
     - nightly
 install:
+    - export PROTOC_ZIP=protoc-3.7.1-linux-x86_64.zip
+    - curl -OL https://github.com/google/protobuf/releases/download/v3.7.1/$PROTOC_ZIP
+    - unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+    - rm -f $PROTOC_ZIP
     - cd rust_hedera_sdk/
+    - export RUST_BACKTRACE=1
     - cargo build
