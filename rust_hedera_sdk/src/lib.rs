@@ -170,6 +170,12 @@ pub extern fn create_file_from_file(input_operator: *const c_char, input_node_po
     convert_to_UTF_16(create_file_from_file_func(convert_to_UTF_8(input_operator),convert_to_UTF_8(input_node_port),convert_to_UTF_8(input_node_account),convert_to_UTF_8(input_private_key),convert_to_UTF_8(input_file_path)))
 }
 
+//append_file_method
+#[no_mangle]
+pub extern fn append_file(input_operator: *const c_char, input_node_port: *const c_char, input_node_account: *const c_char, input_private_key: *const c_char, input_file_id: *const c_char, input_append_text: *const c_char) -> *const c_char {
+    convert_to_UTF_16(append_file_func(convert_to_UTF_8(input_operator),convert_to_UTF_8(input_node_port),convert_to_UTF_8(input_node_account),convert_to_UTF_8(input_private_key),convert_to_UTF_8(input_file_id),convert_to_UTF_8(input_append_text)))
+}
+
 
 // Wrapping a function into another if necessary and issuing access to it
 // This method allows you to create a contract

@@ -88,7 +88,7 @@ pub fn call_contract_func<'a>(input_operator: &str, input_node_port: &str, input
 
     // If we got here we know we passed pre-check
     // Depending on your requirements that may be enough for some kinds of transactions
-    sleep(Duration::from_secs(1));
+    sleep(Duration::from_secs(3));
 
     // get the record from the contract call and extract the result
     let record = client.transaction(id).record().get().unwrap();

@@ -1,6 +1,6 @@
 {
   "name": "exclbr-hedera-js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "This framework allows you to interact with HederaSDK on the Web.",
   "main": "Excalibur_.js",
   "scripts": {
