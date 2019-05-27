@@ -1,13 +1,19 @@
+notifications:
+  email:
+    recipients:
+      - zhdanoff.alexey@gmail.com
+    on_success: never
+    on_failure: never
+
 language: rust
 
 rust:
-    - 1.32.0
-    - stable
-    - beta
     - nightly
-
-matrix:
-    allow_failures:
-        - rust: nightly
-
-    fast_finish: true
+install:
+    - export PROTOC_ZIP=protoc-3.7.1-linux-x86_64.zip
+    - curl -OL https://github.com/google/protobuf/releases/download/v3.7.1/$PROTOC_ZIP
+    - sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+    - rm -f $PROTOC_ZIP
+    - cd rust_hedera_sdk/
+    - export RUST_BACKTRACE=1
+    - cargo build
