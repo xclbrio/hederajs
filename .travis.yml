@@ -17,3 +17,4 @@ install:
     - cd rust_hedera_sdk/
     - export RUST_BACKTRACE=1
     - cargo build
+    - cargo test
