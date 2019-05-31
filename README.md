@@ -1,4 +1,4 @@
-# Hedera JavaScript SDK
+# Hedera JavaScript API
 
 
 [![](https://img.shields.io/badge/project-Excalibur__-ef5777.svg?style=popout-square)](https://github.com/xclbrio)
