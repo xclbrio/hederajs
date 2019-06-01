@@ -8,7 +8,7 @@
 [![Gitter](https://img.shields.io/gitter/room/:user/:repo.svg?style=flat-square)](https://gitter.im/xclbrio/Lobby)
 [![Telegram Chat](https://img.shields.io/badge/chat-Telegram-blue.svg?style=popout-square)](https://t.me/hashgraphdev_ru)
 
-Hedera JavaScript SDK is the environment for working with Hedera Hashgraph - a consensus platform using the hashgraph consensus algorithm for fast, fair and secure transactions. This is an unofficial version of the development tool by [Excalibur_](https://github.com/xclbrio) team.
+Hedera JavaScript API is the environment for working with Hedera Hashgraph - a consensus platform using the hashgraph consensus algorithm for fast, fair and secure transactions. This is an unofficial version of the development tool by [Excalibur_](https://github.com/xclbrio) team.
 
 
 ## Table of Contents
