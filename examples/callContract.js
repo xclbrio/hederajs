@@ -9,6 +9,7 @@ const excalibur = new Excalibur_(nodeAddress, nodeAccount);
 const userAccount = "0.0.1000";
 const userPrivateKey = "***";
 
+
 // contract settings
 const contractID = "0.0.1096";
 const gasValue = "1000000";
