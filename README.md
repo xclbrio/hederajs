@@ -10,7 +10,6 @@
 
 Hedera JavaScript API is the environment for working with Hedera Hashgraph - a consensus platform using the hashgraph consensus algorithm for fast, fair and secure transactions. This is an unofficial version of the development tool by [Excalibur_](https://github.com/xclbrio) team.
 
-
 ## Table of Contents
 
 * [Installation](#installation)
