@@ -23,7 +23,7 @@ hex = "0.3.2"
 failure = "0.1.5"
 simple_asn1 = "0.3.0"
 failure_derive = "0.1.5"
-once_cell = { version = "0.1.7", features = [ "parking_lot" ] }
+once_cell = { version = "1.0.1", features = [ "parking_lot" ] }
 num = "0.2.0"
 protobuf = "2.3.0"
 itertools = "0.8.0"
